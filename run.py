@@ -38,6 +38,7 @@ from torch_geometric.loader import DataLoader
 
 from models import ResGATs
 from utils.metrics import collect_predictions, evaluate_metrics
+from utils.logger import TrainLogger
 
 try:
     import wandb
@@ -177,6 +178,8 @@ def train_one_fold(train_graphs, val_graphs, test_graphs, fold_idx, *,
     criterion = nn.NLLLoss(weight=class_weights)
 
     run_name = f"ResGAT_fold{fold_idx}"
+    logger = TrainLogger(log_dir, run_name) if log_dir else None
+
     run = None
     if HAS_WANDB and wandb_mode != "disabled":
         os.environ["WANDB_MODE"] = wandb_mode
@@ -231,6 +234,9 @@ def train_one_fold(train_graphs, val_graphs, test_graphs, fold_idx, *,
                         "train/loss": t_loss, "train/acc": t_acc,
                         "val/loss": v_loss, "val/acc": v_acc})
 
+        if logger:
+            logger.log_epoch(epoch + 1, t_loss, t_acc, v_loss, v_acc)
+
         print(f"Epoch {epoch + 1:03d} | "
               f"Train Loss {t_loss:.4f} Acc {t_acc:.2f}% | "
               f"Val Loss {v_loss:.4f} Acc {v_acc:.2f}%")
@@ -278,6 +284,10 @@ def train_one_fold(train_graphs, val_graphs, test_graphs, fold_idx, *,
         wandb.log({"test/acc": te_acc, "test/bacc": te_bacc,
                     "test/auc": te_auc, "test/f1": te_f1})
         wandb.finish()
+
+    if logger:
+        logger.log_test(acc=te_acc, bacc=te_bacc, auc=te_auc, f1=te_f1)
+        logger.close()
 
     print(f"===== Test | Acc {te_acc:.2f}% | BAcc {te_bacc:.4f} | "
           f"AUC {te_auc:.4f} | F1 {te_f1:.4f} =====")

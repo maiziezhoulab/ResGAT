@@ -39,6 +39,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from models import ResGATs
 from utils.metrics import collect_predictions
+from utils.logger import TrainLogger
 
 try:
     import wandb
@@ -195,6 +196,8 @@ def main():
     device = torch.device(args.device if torch.cuda.is_available() else "cpu")
     os.makedirs(args.save_dir, exist_ok=True)
 
+    logger = TrainLogger(args.log_dir, "domain_adaptation") if args.log_dir else None
+
     graphs, names, labels = load_graphs(args.graph_dir)
     src_idx, tgt_idx = split_by_prefix(names, graphs, labels,
                                         args.source_prefix,
@@ -230,7 +233,11 @@ def main():
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
+        tl, tm = evaluate_model(model, train_loader, device, criterion)
         vl, vm = evaluate_model(model, val_loader, device, criterion)
+        if logger:
+            logger.log_epoch(epoch + 1, tl, tm["accuracy"] * 100,
+                             vl, vm["accuracy"] * 100, phase="source")
         if vl < best_val:
             best_val = vl
             best_wts = copy.deepcopy(model.state_dict())
@@ -240,6 +247,9 @@ def main():
     model.load_state_dict(best_wts)
     torch.save(best_wts, os.path.join(args.save_dir, "source_best.pth"))
     _, src_test = evaluate_model(model, test_loader, device)
+    if logger:
+        logger.log_test(phase="source", bacc=src_test["accuracy"],
+                        auc=src_test["auc"], f1=src_test["f1"])
     print(f"Source test BAcc: {src_test['accuracy']:.4f} | "
           f"AUC: {src_test['auc']:.4f}")
 
@@ -249,6 +259,9 @@ def main():
                                         seed=args.seed)
     tgt_test_loader = DataLoader([graphs[i] for i in tgt_te], batch_size=1)
     _, zs_metrics = evaluate_model(model, tgt_test_loader, device)
+    if logger:
+        logger.log_test(phase="zero_shot", bacc=zs_metrics["accuracy"],
+                        auc=zs_metrics["auc"], f1=zs_metrics["f1"])
     print(f"Zero-shot target BAcc: {zs_metrics['accuracy']:.4f} | "
           f"AUC: {zs_metrics['auc']:.4f}")
 
@@ -293,6 +306,14 @@ def main():
         fwt = tgt_m["accuracy"] - zs_metrics["accuracy"]
         bwt = src_m["accuracy"] - src_test["accuracy"]
 
+        if logger:
+            logger.log_test(phase=f"few_shot_{n_shots}",
+                            target_bacc=tgt_m["accuracy"],
+                            source_bacc=src_m["accuracy"],
+                            fwt=fwt, bwt=bwt,
+                            target_auc=tgt_m["auc"],
+                            target_f1=tgt_m["f1"])
+
         print(f"  Target BAcc: {zs_metrics['accuracy']:.4f} -> "
               f"{tgt_m['accuracy']:.4f} (FWT: {fwt:+.4f})")
         print(f"  Source BAcc: {src_test['accuracy']:.4f} -> "
@@ -301,6 +322,8 @@ def main():
         torch.save(best_ft, os.path.join(
             args.save_dir, f"ft_{n_shots}shot_best.pth"))
 
+    if logger:
+        logger.close()
     print("\nDomain adaptation experiment complete.")
 
 
