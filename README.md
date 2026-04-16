@@ -22,8 +22,7 @@ ResGAT/
 ├── requirements.txt
 ├── heatmap_visualization.ipynb           # GradCAM++ interpretability notebook
 ├── run.py                                # Unified training script (all datasets)
-├── assets/                               # Pipeline figure
-├── logs/                                 # Training logs (default --log_dir)
+├── assets/
 ├── models/
 │   ├── resgat.py                         # Core ResGAT model
 │   └── weights/                          # Saved checkpoints (default --save_dir)
