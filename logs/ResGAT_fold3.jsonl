@@ -1,0 +1,27 @@
+{"type": "epoch", "epoch": 1, "train_loss": 0.584858, "train_acc": 67.0588, "val_loss": 0.399241, "val_acc": 85.7143, "timestamp": "2026-04-15 21:01:43"}
+{"type": "epoch", "epoch": 2, "train_loss": 0.194929, "train_acc": 96.4706, "val_loss": 0.230074, "val_acc": 89.2857, "timestamp": "2026-04-15 21:01:55"}
+{"type": "epoch", "epoch": 3, "train_loss": 0.025685, "train_acc": 100.0, "val_loss": 0.228442, "val_acc": 85.7143, "timestamp": "2026-04-15 21:02:07"}
+{"type": "epoch", "epoch": 4, "train_loss": 0.005958, "train_acc": 100.0, "val_loss": 0.335559, "val_acc": 89.2857, "timestamp": "2026-04-15 21:02:19"}
+{"type": "epoch", "epoch": 5, "train_loss": 0.002108, "train_acc": 100.0, "val_loss": 0.338603, "val_acc": 89.2857, "timestamp": "2026-04-15 21:02:31"}
+{"type": "epoch", "epoch": 6, "train_loss": 0.001415, "train_acc": 100.0, "val_loss": 0.368576, "val_acc": 89.2857, "timestamp": "2026-04-15 21:02:43"}
+{"type": "epoch", "epoch": 7, "train_loss": 0.001111, "train_acc": 100.0, "val_loss": 0.37322, "val_acc": 89.2857, "timestamp": "2026-04-15 21:02:55"}
+{"type": "epoch", "epoch": 8, "train_loss": 0.000838, "train_acc": 100.0, "val_loss": 0.366545, "val_acc": 89.2857, "timestamp": "2026-04-15 21:03:07"}
+{"type": "epoch", "epoch": 9, "train_loss": 0.000654, "train_acc": 100.0, "val_loss": 0.383038, "val_acc": 89.2857, "timestamp": "2026-04-15 21:03:18"}
+{"type": "epoch", "epoch": 10, "train_loss": 0.000534, "train_acc": 100.0, "val_loss": 0.400699, "val_acc": 89.2857, "timestamp": "2026-04-15 21:03:30"}
+{"type": "epoch", "epoch": 11, "train_loss": 0.000494, "train_acc": 100.0, "val_loss": 0.405021, "val_acc": 89.2857, "timestamp": "2026-04-15 21:03:42"}
+{"type": "epoch", "epoch": 12, "train_loss": 0.000393, "train_acc": 100.0, "val_loss": 0.406281, "val_acc": 89.2857, "timestamp": "2026-04-15 21:03:54"}
+{"type": "epoch", "epoch": 13, "train_loss": 0.000361, "train_acc": 100.0, "val_loss": 0.423281, "val_acc": 89.2857, "timestamp": "2026-04-15 21:04:06"}
+{"type": "epoch", "epoch": 14, "train_loss": 0.000317, "train_acc": 100.0, "val_loss": 0.42133, "val_acc": 89.2857, "timestamp": "2026-04-15 21:04:17"}
+{"type": "epoch", "epoch": 15, "train_loss": 0.000289, "train_acc": 100.0, "val_loss": 0.427443, "val_acc": 89.2857, "timestamp": "2026-04-15 21:04:29"}
+{"type": "epoch", "epoch": 16, "train_loss": 0.000252, "train_acc": 100.0, "val_loss": 0.430139, "val_acc": 89.2857, "timestamp": "2026-04-15 21:04:41"}
+{"type": "epoch", "epoch": 17, "train_loss": 0.000239, "train_acc": 100.0, "val_loss": 0.427684, "val_acc": 89.2857, "timestamp": "2026-04-15 21:04:53"}
+{"type": "epoch", "epoch": 18, "train_loss": 0.000219, "train_acc": 100.0, "val_loss": 0.429132, "val_acc": 89.2857, "timestamp": "2026-04-15 21:05:05"}
+{"type": "epoch", "epoch": 19, "train_loss": 0.000213, "train_acc": 100.0, "val_loss": 0.423287, "val_acc": 89.2857, "timestamp": "2026-04-15 21:05:16"}
+{"type": "epoch", "epoch": 20, "train_loss": 0.000197, "train_acc": 100.0, "val_loss": 0.447329, "val_acc": 89.2857, "timestamp": "2026-04-15 21:05:28"}
+{"type": "test", "acc": 92.857143, "bacc": 0.918129, "auc": 0.912281, "f1": 0.888889, "timestamp": "2026-04-15 21:05:30"}
+{"type": "epoch", "epoch": 1, "train_loss": 0.311837, "train_acc": 86.8465, "val_loss": 0.273702, "val_acc": 88.2653, "timestamp": "2026-04-15 22:24:22"}
+{"type": "epoch", "epoch": 2, "train_loss": 0.14775, "train_acc": 94.4351, "val_loss": 0.141023, "val_acc": 95.9184, "timestamp": "2026-04-15 22:25:35"}
+{"type": "epoch", "epoch": 3, "train_loss": 0.091594, "train_acc": 97.3019, "val_loss": 0.177644, "val_acc": 94.3878, "timestamp": "2026-04-15 22:26:49"}
+{"type": "epoch", "epoch": 4, "train_loss": 0.097242, "train_acc": 96.4587, "val_loss": 0.251206, "val_acc": 91.3265, "timestamp": "2026-04-15 22:28:03"}
+{"type": "epoch", "epoch": 5, "train_loss": 0.037125, "train_acc": 97.9764, "val_loss": 0.584971, "val_acc": 87.7551, "timestamp": "2026-04-15 22:29:15"}
+{"type": "epoch", "epoch": 6, "train_loss": 0.041644, "train_acc": 98.8196, "val_loss": 0.232202, "val_acc": 92.8571, "timestamp": "2026-04-15 22:30:28"}

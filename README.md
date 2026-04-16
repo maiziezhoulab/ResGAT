@@ -81,17 +81,7 @@ The label CSV should have two columns: `filename` (matching `.pt` file stems) an
 
 ## Training
 
-### AC (Appendiceal Cancer) — Binary Classification
-
-```bash
-python run.py \
-    --dataset ac \
-    --graph_dir graph_construction/graphs/ \
-    --splits_pkl data/ac/AC_five_fold_splits.pkl \
-    --epochs 20 --lr 3e-4 --device cuda:0
-```
-
-### TCGA-NSCLC — Binary Classification
+### TCGA Dataset
 
 ```bash
 python run.py \
@@ -101,7 +91,7 @@ python run.py \
     --epochs 20 --lr 3e-4 --device cuda:0
 ```
 
-### BRACS — 7-Class Classification
+### BRACS Dataset
 
 ```bash
 python run.py \

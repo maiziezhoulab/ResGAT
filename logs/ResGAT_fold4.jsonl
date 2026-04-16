@@ -1,0 +1,21 @@
+{"type": "epoch", "epoch": 1, "train_loss": 0.571641, "train_acc": 71.4286, "val_loss": 0.21583, "val_acc": 100.0, "timestamp": "2026-04-15 21:05:43"}
+{"type": "epoch", "epoch": 2, "train_loss": 0.173957, "train_acc": 97.619, "val_loss": 0.079364, "val_acc": 100.0, "timestamp": "2026-04-15 21:05:56"}
+{"type": "epoch", "epoch": 3, "train_loss": 0.109686, "train_acc": 96.4286, "val_loss": 0.016807, "val_acc": 100.0, "timestamp": "2026-04-15 21:06:08"}
+{"type": "epoch", "epoch": 4, "train_loss": 0.066669, "train_acc": 97.619, "val_loss": 0.006071, "val_acc": 100.0, "timestamp": "2026-04-15 21:06:21"}
+{"type": "epoch", "epoch": 5, "train_loss": 0.023717, "train_acc": 98.8095, "val_loss": 0.006097, "val_acc": 100.0, "timestamp": "2026-04-15 21:06:34"}
+{"type": "epoch", "epoch": 6, "train_loss": 0.020827, "train_acc": 100.0, "val_loss": 0.001851, "val_acc": 100.0, "timestamp": "2026-04-15 21:06:47"}
+{"type": "epoch", "epoch": 7, "train_loss": 0.001971, "train_acc": 100.0, "val_loss": 0.004084, "val_acc": 100.0, "timestamp": "2026-04-15 21:06:59"}
+{"type": "epoch", "epoch": 8, "train_loss": 0.001131, "train_acc": 100.0, "val_loss": 0.00286, "val_acc": 100.0, "timestamp": "2026-04-15 21:07:12"}
+{"type": "epoch", "epoch": 9, "train_loss": 0.000777, "train_acc": 100.0, "val_loss": 0.001873, "val_acc": 100.0, "timestamp": "2026-04-15 21:07:25"}
+{"type": "epoch", "epoch": 10, "train_loss": 0.000665, "train_acc": 100.0, "val_loss": 0.001585, "val_acc": 100.0, "timestamp": "2026-04-15 21:07:37"}
+{"type": "epoch", "epoch": 11, "train_loss": 0.000549, "train_acc": 100.0, "val_loss": 0.001557, "val_acc": 100.0, "timestamp": "2026-04-15 21:07:50"}
+{"type": "epoch", "epoch": 12, "train_loss": 0.000473, "train_acc": 100.0, "val_loss": 0.001549, "val_acc": 100.0, "timestamp": "2026-04-15 21:08:03"}
+{"type": "epoch", "epoch": 13, "train_loss": 0.000374, "train_acc": 100.0, "val_loss": 0.001116, "val_acc": 100.0, "timestamp": "2026-04-15 21:08:16"}
+{"type": "epoch", "epoch": 14, "train_loss": 0.00034, "train_acc": 100.0, "val_loss": 0.001051, "val_acc": 100.0, "timestamp": "2026-04-15 21:08:28"}
+{"type": "epoch", "epoch": 15, "train_loss": 0.000312, "train_acc": 100.0, "val_loss": 0.000886, "val_acc": 100.0, "timestamp": "2026-04-15 21:08:41"}
+{"type": "epoch", "epoch": 16, "train_loss": 0.000285, "train_acc": 100.0, "val_loss": 0.000932, "val_acc": 100.0, "timestamp": "2026-04-15 21:08:54"}
+{"type": "epoch", "epoch": 17, "train_loss": 0.000264, "train_acc": 100.0, "val_loss": 0.000852, "val_acc": 100.0, "timestamp": "2026-04-15 21:09:07"}
+{"type": "epoch", "epoch": 18, "train_loss": 0.00025, "train_acc": 100.0, "val_loss": 0.000757, "val_acc": 100.0, "timestamp": "2026-04-15 21:09:20"}
+{"type": "epoch", "epoch": 19, "train_loss": 0.000244, "train_acc": 100.0, "val_loss": 0.00074, "val_acc": 100.0, "timestamp": "2026-04-15 21:09:33"}
+{"type": "epoch", "epoch": 20, "train_loss": 0.000215, "train_acc": 100.0, "val_loss": 0.00072, "val_acc": 100.0, "timestamp": "2026-04-15 21:09:45"}
+{"type": "test", "acc": 96.428571, "bacc": 0.928571, "auc": 0.959184, "f1": 0.923077, "timestamp": "2026-04-15 21:09:47"}
