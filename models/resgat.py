@@ -9,7 +9,7 @@ Architecture:
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.nn import GATv2Conv, GraphNorm, global_mean_pool
+from torch_geometric.nn import GATv2Conv, GraphNorm, SAGPooling, global_mean_pool
 
 
 class ResidualBlockGAT(nn.Module):
@@ -36,6 +36,8 @@ class ResidualBlockGAT(nn.Module):
         self.skip = nn.Linear(in_dim, out_dim, bias=True)
         self.skip_norm = GraphNorm(out_dim)
 
+        self._pool = SAGPooling(out_dim, ratio=0.9)
+
     def forward(self, x, edge_index, batch):
         x_main = self.conv(x, edge_index)
         x_main = self.bn(x_main, batch)
@@ -60,13 +62,10 @@ class ResGATs(nn.Module):
         n_classes: Number of output classes.
     """
 
-    def __init__(self, input_dim, hidden_dim=None, heads=None,
+    def __init__(self, input_dim, hidden_dim=[1024, 512, 256], heads=[8, 2, 4],
                  dropout=0.3, n_classes: int = 2):
         super().__init__()
-        if hidden_dim is None:
-            hidden_dim = [1024, 512, 256]
-        if heads is None:
-            heads = [8, 2, 4]
+
         h0, h1, h2 = hidden_dim
 
         self.block1 = ResidualBlockGAT(input_dim, h0, heads=heads[0],
@@ -79,6 +78,8 @@ class ResGATs(nn.Module):
         self.fc1 = nn.Linear(h2, 512)
         self.drop = nn.Dropout(0.13)
         self.fc2 = nn.Linear(512, int(n_classes))
+
+        self._pool = SAGPooling(h0, ratio=0.9)
 
     def forward(self, data):
         x, edge_index, batch = data.x, data.edge_index, data.batch
